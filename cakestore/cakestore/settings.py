@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-9mdbhw$d6=1_!km*ezqwnz-%(0obl=w+qwdv^my%frqlzi98vo
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['works-7cfu.onrender.com']
+ALLOWED_HOSTS = ['https://works-7cfu.onrender.com']
 
 
 # Application definition
@@ -115,8 +115,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = 'static/'
+
+
+# Production settings
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 #在开发环境中使用
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
