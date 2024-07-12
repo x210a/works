@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimun-scale=1.0,maximum-scale=2.0">
+    <meta name="description" content="Free Web tutorials">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+    <meta name="author" content="Jin,showswin459@mail.com">
+    <title>Welcome Show About</title>
+
+    <!--網路字型-->
+    <link href="https: //fonts.googleapis.com/css2?family=Nanum+Gothic:wght@800 & display= swap " rel="stylesheet" 家庭= Nanum+Gothic:wght@400;700;800 &>
+     
+    <!--網站小圖示-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    
+    <!--加入手機主畫面捷徑圖示-->
+    <link rel="apple-touch icon" href="../images/beach.png">
+
+    <link href="https://fonts.googleapis.com/ion?family=Material+Icons" rel="stylesheet">
+ 
+    <!--歸零CSS-->
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <!--變數設定CSS-->
+    <link rel="stylesheet" href="{% static 'css/basic.css' %}">
+    <!--版面設定CSS-->
+    <link rel="stylesheet" href="{% static 'css/style1.css' %}">
+</head>
+<body>
+    <div id="header">
+        <div id="logo">
+            <h1 title="Go back to homepage"><span>Hello Hello</span><a href="{% url 'product_list' %}"></a></h1>
+        </div>
+        <div id="nav">
+            <!--上層固定選單-->
+            <nav id="top-nav">
+                <ul>
+                    <li><a href="#0"><span class="material-icons">app_shortcut</span><span class="topnav-text">Go To App</span></a></li>
+                    <li><a href="#0"><span class="material-icons">storefront</span><span class="topnav-text">Online Shop</span></a></li>
+                </ul>
+            </nav>
+            <!--主選單-->
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="{% url 'about' %}" class="highlight_txt">About</a></li>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'product_list' %}">Products</a></li>
+                    <li><a href="javascript:alert('還未建立')">News</a></li>
+                    <li><a href="javascript:alert('還未建立')">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <!--橫幅圖片-->
+    <div class="hero-image" style="background-image: url( '../static/img/banner1.jpg');">
+        <div class="hero-text">
+            <h1 class="font-size-50 line-height_15">Hello Hello</h1>
+            <p class="margin_bottom-20">The ocean gave birth to countless lives.</p>
+            <button>Visit it!</button>
+        </div>
+    </div>
+
+    <!--滿版文字區塊-->
+    <div class="full_layout bg_piggy">
+        <div id="maintxt">
+            <h2 class="color_pink">店家簡介</h2>
+            <p>簡約時尚是一家專注於提供高品質、現代且簡約設計的時尚店。無論是日常穿搭、工作裝扮還是特殊場合的服飾，</p>
+            <p>我們都致力於讓每位顧客找到適合他們的時尚單品。</p>
+        </div>
+    </div>
+    <!--LOGO區塊-->
+    <div id="mainpic">
+        <div class="item1"><img src="{% static 'img/logo1.png' %}" alt="" class="pic_transform"></div>
+        <div class="item2"><img src="{% static 'img/logo1.png' %}" alt="" class="pic_transform"></div>
+        <div class="item3"><img src="{% static 'img/logo1.png' %}" alt="" class="pic_transform"></div>
+        <div class="item4"><img src="{% static 'img/logo1.png' %}" alt="" class="pic_transform"></div>
+        <div class="item5"><img src="{% static 'img/logo1.png' %}" alt="" class="pic_transform"></div>
+    </div>
+    <!--表單+地圖區塊-->
+    <div class="full_layout bg_piggy padding_v3">
+        <div id="main-content">
+            <h2 class="color_pink">Contact Us</h2>
+            <div id="contact_form">
+                <form method="post" action="">
+                    <input type="text" name="username" id="username" placeholder="Your name">
+                    <input type="text" name="usermail" id="email" placeholder="Your Email">
+                    <input type="text" name="userphone" id="phone" placeholder="Your Phone">
+                    <textarea name="useropinion" id="useropinion" placeholder="Leave Your Message Here"></textarea>
+                    <input type="submit" value="submit" class="button_pink-gradient cursor_pointer" 
+                        onclick="alert('Thank You!\n We will respond ASAP!')">
+                </form>
+            </div>
+            <div id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3700.3508448291436!2d120.76097817515611!3d21.959493829933095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3471b1abaefd19b9%3A0x77b6609498f2b08f!2z5Y2X54Gj6YGK5oap5Y2A!5e0!3m2!1szh-TW!2stw!4v1689080994719!5m2!1szh-TW!2stw" width="98%" height="445" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!--頁尾區塊-->
+    <div id="footer">
+        <div id="copyright">
+            <small>Copyright 2024 Hello Hello </small>
+            <a href="tel:+8801886-666581">tel:+8860912345678</a>
+        </div>
+        <div id="sns">
+            <a href="https://www.facebook.com/profile.php?id=100011440432974&locale=zh_TW" target="_blank"><img src="{% static 'img/ion-fb.png' %}" alt=""></a>
+            <a href="https://www.instagram.com/joshua__1114?igsh=ZnZ4bWYzcG5jNWZk/" target="_blank"><img src="{% static 'img/ion-ig.png' %}" alt=""></a>
+            <a href="javascript:alert('還未建立')" targe="_blank"><img src="{% static 'img/ion-linkedin.png' %}" alt=""></a>
+            <a href="javascript:alert('還未建立')" targe="_blank"><img src="{% static 'img/ion-skype.png' %}" alt=""></a>
+            <a href="javascript:alert('還未建立')" targe="_blank"><img src="{% static 'img/ion-twitter.png' %}" alt=""></a>
+        </div>
+    </div>
+        <!--GOTOP區塊-->
+        <div id="gotop">
+            <a href="#"><span class="material-icons">arrow_circle_up</span>
+                <span class="gotip">Go Back To Top</span>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

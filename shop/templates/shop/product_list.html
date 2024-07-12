@@ -1,0 +1,74 @@
+{% extends 'shop/base.html' %}
+
+{% block title %}product List{% endblock %}
+
+{% block content %}
+    <style>
+        .container {
+            margin-top: 50px;
+            /* margin-left: 20px; */
+        }
+        .carousel-item img {
+            width: 100%; /* 使图片宽度填满容器，也可以设定为其他固定值 */
+            height: 100%; /* 高度自动调整，保持图片比例不变 */
+            display: flex;
+            justify-content: center; /* 水平居中 */
+            align-items: center; /* 垂直居中 */
+    }
+    </style>
+</head>{% load static %}
+<body>
+    
+    <div calss="container">
+        <div class="carousel">
+        <div class="row">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" style="margin-right: 450px;">
+                <div class="carousel-item active">
+                    <img src="{% static 'img/cb.jpg' %}" class="mx-auto d-block w-100" style="width: 600px; height: 600px;  "  alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/cb2.jpg' %}" class="mx-auto d-block w-100" style="width: 600px; height: 600px;"  alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'img/cb1.jpg' %}" class="mx-auto d-block w-100"  style="width: 600px; height: 600px;" alt="...">
+                </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 產品透過card呈現 -->
+    <div class="container">
+        <h1 class="text-center">Product_List</h1>
+        <div class="row">
+            {% for product in products %}
+            <div class="col-md-4">
+                <div class="card border-primary mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name}}</h5>
+                        <p class="card-text">Price: ${{ product.price}}</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-sm btn-outline-secondary">View</a>
+                                <!-- 添加到購物車按鈕 -->
+                                <a href="{% url 'add_to_cart' product.id %}" class="btn btn-sm btn-outline-secondary">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+{% endblock %}
